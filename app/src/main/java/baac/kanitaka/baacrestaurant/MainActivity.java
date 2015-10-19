@@ -7,6 +7,7 @@ public class MainActivity extends AppCompatActivity {
 
     //explicit
     private UserTABLE objUserTABLE;
+    private FoodTABLE objFoodTABLE;
 
 
     @Override
@@ -16,9 +17,22 @@ public class MainActivity extends AppCompatActivity {
 
         //Create and Connected DB
         createAndConnected();
+
+        //Tester Add new value
+        testerAdd();
+
     } //Main Method
+
+    private void testerAdd() {
+
+        objUserTABLE.addNewUser("testUser", "testPassword", "testNameทดสอบ");
+        objFoodTABLE.addNewFood("Tumyamfish","testSource","260บาท");
+    }
+
+
 
     private void createAndConnected() {
         objUserTABLE = new UserTABLE(this);
+        objFoodTABLE = new FoodTABLE(this);
     }
 } //Main Class
