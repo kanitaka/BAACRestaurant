@@ -1,5 +1,6 @@
 package baac.kanitaka.baacrestaurant;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -19,9 +20,18 @@ public class MainActivity extends AppCompatActivity {
         createAndConnected();
 
         //Tester Add new value
-        testerAdd();
+        //testerAdd();
+
+        //Tester Delete All SQLite
+        deleteAllSQLite();
 
     } //Main Method
+
+    private void deleteAllSQLite() {
+        SQLiteDatabase objSqLiteDatabase = openOrCreateDatabase("BAAC.db", MODE_PRIVATE, null);
+        objSqLiteDatabase.delete("userTABLE", null, null);
+        objSqLiteDatabase.delete("foodTABLE", null, null);
+    }
 
     private void testerAdd() {
 
